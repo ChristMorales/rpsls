@@ -1,0 +1,15 @@
+.count {
+    padding: 5%;
+}
+
+.none-display {
+    display: none;
+}
+
+.count {
+    font-size: 1.5rem;
+}
+
+.grayed {
+    color: lightgray;
+}

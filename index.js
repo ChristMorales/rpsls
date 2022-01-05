@@ -5,6 +5,64 @@ let currentUserChoice;
 let currentComputerChoice;
 
 let gameStatus;
+let started = false;
+
+let checkIcon = "far fa-check-circle";
+
+function startGame(){
+    $("#select .btn").click(function(){
+        started = true;
+        currentUserChoice = $(this).attr("id");
+        randomComputer();
+        game(currentUserChoice, currentComputerChoice);
+        chooseWinner(userWinCount, computerWinCount);
+    })
+}
+
+$(".start-button").click(function(){
+    started = true;
+    startGame();
+    $(this).addClass("none-display");
+    $(".restart-button").removeClass("none-display");
+})
+
+$(".restart-button").click(function(){
+    restartGame();  
+    $(".start-button").removeClass("none-display");
+    $(this).addClass("none-display");
+    $(".play-again").addClass("none-display");
+})
+
+function restartGame () {
+    if (userWinCount === 5){
+        $(".you-win").addClass("none-display");
+    } else if (computerWinCount === 5){
+        $(".you-loose").addClass("none-display");
+    }  
+    resetIcon(userWinCount, computerWinCount);  
+    userWinCount = 0;
+    computerWinCount = 0;
+    started = false;
+    gameStatus = " ";    
+    $(".game-status").text(gameStatus); 
+    $(".game-status").removeClass("none-display");
+}
+
+
+
+function chooseWinner(userWinCount, computerWinCount) {
+    if (userWinCount === 5|| computerWinCount === 5){
+        if (userWinCount === 5){
+            $(".you-win").removeClass("none-display");
+        } else if (computerWinCount === 5){
+            $(".you-loose").removeClass("none-display");
+        }
+        $("#select .btn").off();
+        $(".game-status").addClass("none-display");
+        $(".play-again").removeClass("none-display");
+    }
+}
+    
 
 function randomComputer() {
     let randomNumber = Math.floor(Math.random() * 5);
@@ -36,10 +94,13 @@ function game(userChoice, computerChoice){
             (userChoice === "rock" && (computerChoice === "scisors" || computerChoice === "lizard")) ||
             (userChoice === "lizard" && (computerChoice === "spock" || computerChoice === "paper"))) {
         userWinCount++;
+        greyIcon("user", userWinCount);
         gameStatus = "You win this round"
-        
+    } else if (userChoice === computerChoice){
+        gameStatus = "Its a tie";        
     } else {
         computerWinCount++
+        greyIcon("computer", computerWinCount);
         gameStatus = "Computer wins this round"
     }  
 console.log("user: " + userWinCount + " Computer: " + computerWinCount); 
@@ -47,9 +108,20 @@ console.log(currentComputerChoice, currentUserChoice);
 $(".game-status").text(gameStatus);     
 }
 
-$("#select .btn").click(function(){
-    currentUserChoice = $(this).attr("id");
-    randomComputer();
-    game(currentUserChoice, currentComputerChoice);
-})
+function greyIcon(player, number){
+    $(".grayed" + number + "." + player + "-grey").removeClass("grayed");
+}
+
+function resetIcon(userWinCount, computerWinCount){
+    for (let i = 1; i <= userWinCount; i++){
+        $(".grayed" + i + " .user-grey").addClass("grayed");
+    }
+    for (let i = 1; i <= computerWinCount; i++){
+        $(".grayed" + i + " .computer-grey").addClass("grayed");
+    }
+}
+
+
+
+
 

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/19dc9032d4.js" crossorigin="anonymous"></script>
+    <title>Rock Paper Scisors</title>
+
+</head>
+<body>
+  <header id="navbar" class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <i class="fas fa-fist-raised"></i> Rock Paper Scisors
+      </a>  
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-primary"> <i class="far fa-play-circle"></i> START</button>
+      </div>
+  </header>
+        
+  <div id="select" class="bg-dark text-secondary px-4 py-5 text-center">
+      <div class="py-5">
+        <h1 class="display-5 fw-bold text-white">Select your weapon</h1>
+        <div class="col-lg-6 mx-auto">
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" id="rock" class=" btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold"><i class="far fa-hand-rock"></i> Rock</button>
+            <button type="button" id="paper" class=" btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold"><i class="far fa-hand-paper"></i> Paper</button>
+            <button type="button" id="scisors" class=" btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold"><i class="far fa-hand-scissors"></i> Scisors</button>
+            <button type="button" id="lizard" class=" btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold"><i class="far fa-hand-lizard"></i> Lizard</button>
+            <button type="button" id="spock" class=" btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold"><i class="far fa-hand-spock"></i> Spock</button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div id="count" class="px-4 py-5 my-5 text-center">
+    <i class="far fa-smile-wink"></i>
+    <h1 class="display-5 fw-bold">You Win!</h1>
+    <i class="far fa-sad-tear"></i>
+    <h1 class="display-5 fw-bold">You loose...</h1>
+    <div class="col-lg-6 mx-auto">
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <h1 class="game-status">test</h1>
+        <div>
+          <i class="user-count far fa-check-circle"></i>
+          <p class="user-count-p">test</p>
+        </div>
+        <div>
+          <i class="computer-count far fa-check-circle"></i>
+          <p class="computer-count-p">test</p>
+        </div>
+        
+      </div>
+    <button type="button" class="btn btn-primary btn-lg px-4 gap-3"><i class="far fa-play-circle"></i> RESTART</button>
+    </div>
+  </div>
+
+  <div id="footer" class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <span class="text-muted">© 2021 Company, Inc</span>
+ 
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li><i class="far fa-envelope"></i></li>
+        <li><i class="fab fa-github-square"></i></li>
+      </ul>
+    </footer>
+  </div>
+
+          
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

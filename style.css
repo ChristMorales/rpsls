@@ -13,3 +13,7 @@
 .grayed {
     color: lightgray;
 }
+
+.rotate {
+    transform: rotateY(180deg);
+}

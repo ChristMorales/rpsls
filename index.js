@@ -6,6 +6,7 @@ let currentComputerChoice;
 
 let gameStatus;
 let started = false;
+let round = 0;
 
 let checkIcon = "far fa-check-circle";
 
@@ -14,6 +15,11 @@ function startGame(){
         started = true;
         currentUserChoice = $(this).attr("id");
         randomComputer();
+        round++;
+        
+        $(".weapon-round").append("<h3> Round" + round + "</h3>");
+        $(".user.weapon").append($(weaponIcons[currentUserChoice])).addClass("rotate");
+        $(".computer.weapon").append($(weaponIcons[currentComputerChoice]));
         game(currentUserChoice, currentComputerChoice);
         chooseWinner(userWinCount, computerWinCount);
     })
@@ -43,6 +49,7 @@ function restartGame () {
     userWinCount = 0;
     computerWinCount = 0;
     started = false;
+    round = 0;
     gameStatus = " ";    
     $(".game-status").text(gameStatus); 
     $(".game-status").removeClass("none-display");
@@ -112,16 +119,29 @@ function greyIcon(player, number){
     $(".grayed" + number + "." + player + "-grey").removeClass("grayed");
 }
 
+
+
 function resetIcon(userWinCount, computerWinCount){
     for (let i = 1; i <= userWinCount; i++){
-        $(".grayed" + i + " .user-grey").addClass("grayed");
+        let elem = ".grayed" + i + ".user-grey";
+        $(elem).addClass("grayed");
+        console.log("ok user " + i);
+        console.log(elem);
     }
     for (let i = 1; i <= computerWinCount; i++){
-        $(".grayed" + i + " .computer-grey").addClass("grayed");
+        let elem = ".grayed" + i + ".computer-grey";
+        $(elem).addClass("grayed");
+        console.log("ok computer " + i);
+        console.log(elem);
     }
 }
 
 
+let weaponIcons = {
+    rock : '<i class="far fa-hand-rock"></i>',
+    paper : '<i class="far fa-hand-paper"></i>',
+    scisors : '<i class="far fa-hand-scissors"></i>',
+    lizard : '<i class="far fa-hand-lizard"></i>',
+    spock : '<i class="far fa-hand-spock">',
 
-
-
+}
